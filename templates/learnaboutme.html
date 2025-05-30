@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Bodza</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/learnaboutme_style.css') }}">
+    <style>
+        .bio-block {
+            background: #f9f9f9;
+            border-left: 5px solid #6c757d;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+    
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('favourites') }}">Favourites</a></li>
+            <li><a href="{{ url_for('fact') }}">Interesting Fact</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('webweek3') }}">Web Week 3</a></li>
+            <li><a href="{{ url_for('validator') }}">Validator</a></li>
+            {% if session.get("user_id") %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h1 class="display-6 text-muted">Meet Bodza</h1>
+            <p class="text-secondary">a four-legged friend with a heart full of love</p>
+        </div>
+
+        <section class="d-flex justify-content-center mb-4">
+            <img src="{{ url_for('static', filename='images/1.jpg') }}" width="180" height="180" class="rounded-circle shadow-sm" alt="Bodza portrait" />
+        </section>
+        <div class="bio-block mx-auto" style="max-width:600px">
+            <p>Hi! I'm <strong>Bodza</strong>, a 6-year-old mixed breed. I've got a shiny black coat and was lucky enough to be adopted when I was 3 months old.</p>
+            <p>I'm super gentle and curious—and honestly? I'll follow anyone with snacks or a tennis ball!</p>
+        </div>
+        <footer class="text-center mt-5">
+            <a href="{{ url_for('home') }}" class="link-secondary text-decoration-none">&larr; Back to home</a>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/highlightnav.js') }}"></script>
+</body>
+</html>

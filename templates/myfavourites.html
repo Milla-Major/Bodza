@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favourites</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/myfavourites_style.css') }}">
+</head>
+    
+<body>
+    <nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('favourites') }}">Favourites</a></li>
+          <li><a href="{{ url_for('fact') }}">Interesting Fact</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('webweek3') }}">Web Week 3</a></li>
+          <li><a href="{{ url_for('validator') }}">Validator</a></li>
+            {% if session.get("user_id") %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+  <div class="container py-5">
+ 
+    <div class="mb-4 text-center">
+      <h1 class="display-6 text-danger">Bodza's Favourites</h1>
+      <p class="text-muted">The little things that bring big joy</p>
+    </div>
+
+
+    <div class="text-center mb-3">
+      <img src="{{ url_for('static', filename='images/2.jpg') }}" class="img-fluid rounded-3 shadow-sm" alt="Bodza walking" style="max-width:250px;">
+    </div>
+    <div style="max-width:700px; margin:0 auto;">
+      <p>Long walks with my owner? Yes please! I'm all about discovering new smells, and honestly those fishy treats? Absolute heaven. Toss me a ball and I'll follow you forever.</p>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="{{ url_for('home') }}" class="link-danger text-decoration-none">&larr; Back to home</a>
+    </div>
+
+  </div>
+  <script src="{{ url_for('static', filename='js/highlightnav.js') }}"></script>
+</body>
+</html>
