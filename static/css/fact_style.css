@@ -1,0 +1,39 @@
+nav {
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+.menu a.active {
+    background-color: #555;
+    color: yellow !important;
+    font-weight: bold;
+    text-decoration: underline;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+body {
+    background-color: #F5F5DC;
+}

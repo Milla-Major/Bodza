@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form_style.css') }}">
+    <title>Get in Touch with Bodza</title>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('favourites') }}">Favourites</a></li>
+            <li><a href="{{ url_for('fact') }}">Interesting Fact</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('webweek3') }}">Web Week 3</a></li>
+            <li><a href="{{ url_for('validator') }}">Validator</a></li>
+            {% if session.get("user_id") %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <h1>Write to Bodza!</h1>
+    <p>Do you have a question, a fun story to share, or want to meet Bodza? Send a message!</p>
+
+    <form name="contact" action="{{ url_for('send') }}" method="POST">
+        <div>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Anna or Milla" required>
+        </div>
+
+        <div>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div>
+            <label for="reason">Why are you writing?</label>
+            <select name="reason" id="reason">
+                <option selected>Just saying hi!</option>
+                <option>I want to meet Bodza</option>
+                <option>I have a question about dogs</option>
+                <option>I have a fun story to share</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="password">Secret word for Bodza:</label>
+            <input type="password" id="password" name="password" placeholder="shhh... it's a secret!">
+        </div>
+
+        <div>
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Write something nice..."></textarea>
+        </div>
+
+        <div>
+            <p>Would you like to receive doggy updates?</p>
+            <input type="radio" name="subscribe" value="yes" checked> Yes
+            <input type="radio" name="subscribe" value="no"> No
+        </div>
+
+        <div>
+            <input type="submit" value="Send Message">
+            <input type="reset" value="Clear Form">
+        </div>
+        <div class="centerbut">
+            <button type="button" onclick="alertBodza()" class="alert_button">
+                Surprise Bodza!
+            </button>
+        </div>
+    </form>
+    <script src="{{ url_for('static', filename='js/highlightnav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/button.js') }}"></script>
+</body>
+</html>
+

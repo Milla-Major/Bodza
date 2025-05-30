@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Week 3 &amp; &copy;Milla Major </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/webweek3_style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('favourites') }}">Favourites</a></li>
+          <li><a href="{{ url_for('fact') }}">Interesting Fact</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('webweek3') }}">Web Week 3</a></li>
+          <li><a href="{{ url_for('validator') }}">Validator</a></li>
+            {% if session.get("user_id") %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <h2>Flexbox Gallery</h2>
+        <div class="flex-container">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
+        <h2>Grid Gallery</h2>
+        <div class="grid-container">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
+
+        <h2>CSS&nbsp; Property Table &euro;</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>&quot;Property&quot;</th>
+                    <th>&quot;Description&quot;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>margin</td><td>Space around an element</td></tr>
+                <tr><td>width</td><td>Defines the width of an element</td></tr>
+                <tr><td>height</td><td>Defines the height of an element</td></tr>
+                <tr><td>padding</td><td>Space inside an element, between content and border</td></tr>
+                <tr><td>color</td><td>Sets the color of text</td></tr>
+                <tr><td>background-color</td><td>Sets the background color of an element</td></tr>
+                <tr><td>border</td><td>Creates a border around the element</td></tr>
+            </tbody>
+        </table>
+
+        <h2>&lt;&lt;HTML Entities&gt;&gt;</h2>
+        <ul>
+            <li>&amp; = it just writes an &amp; on the website.</li>
+            <li>&quot; = writes a double quote " character</li>
+            <li>&lt; = writes the less-than symbol (&lt;)</li>
+            <li>&gt; = writes the greater-than symbol (&gt;)</li>
+            <li>&nbsp; = adds a non-breaking space</li>
+            <li>&euro; = shows the Euro currency symbol (&euro;)</li>
+            <li>&copy; = shows the copyright symbol (&copy;)</li>
+            <li>&trade; = shows the trademark symbol (&trade;)</li>
+        </ul>
+  
+       <script src="{{ url_for('static', filename='js/highlightnav.js') }}"></script> 
+</body>
+<footer>    
+    <p>&copy; Milla Major</p>
+    <p>For my university course</p>
+    <p>Web week3trade</p>
+</footer>
+</html>

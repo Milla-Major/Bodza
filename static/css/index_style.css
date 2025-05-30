@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #F5F5DC;
+    display: flex;
+    flex-direction: column;
+}
+@keyframes rainbowSpin {
+    0% { color: red; transform: rotate(0deg); }
+    20% { color: orange; transform: rotate(72deg); }
+    40% { color: yellow; transform: rotate(144deg); }
+    60% { color: green; transform: rotate(216deg); }
+    80% { color: blue; transform: rotate(288deg); }
+    100% { color: violet; transform: rotate(360deg); }
+}
+
+nav {
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+.menu a.active {
+    text-decoration: underline;
+    background-color: #555;
+    color: yellow;
+}
+header {
+    padding: 20px;
+}
+
+header h1 {
+    color: black;
+    font-size: 2em;
+}
+
+main {
+    padding: 0 40px;
+    flex: 1;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 40px;
+    margin: 40px 0;
+    justify-items: center;
+}
+
+.project {
+    text-align: center;
+}
+
+.project img {
+    background-color: #ccc;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 2px solid blue;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+}
+.project img:hover {
+    transform: rotateY(360deg);
+}
+
+.project a {
+    display: block;
+    margin: 8px 0;
+    font-size: 1.1em;
+    color: black;
+
+}
+.project a:hover {
+    font-weight: bold;
+    animation: rainbowSpin 2s linear infinite;
+}
+
+footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 40px;
+}
+html, body {
+    height: 100%;
+}

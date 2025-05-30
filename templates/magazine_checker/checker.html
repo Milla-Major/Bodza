@@ -1,0 +1,21 @@
+{% extends "magazine_checker/base.html" %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Magazine validator</h1>
+    <form method="POST" action="{{ url_for('validator') }}">
+        <div class="form-group">
+            <label for="title">Enter the magazine title:</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter magazine title" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="mt-5">
+        <h2>Previously entered valid magazine titles:</h2>
+        <ul>
+            {% for magazine in magazines %}
+                <li>{{ magazine.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
